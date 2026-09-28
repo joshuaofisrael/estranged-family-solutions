@@ -513,6 +513,12 @@ a:hover {
   font-weight: 600;
 }
 
+img.avatar {
+  display: block;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
 .role {
   margin: 0.1rem 0 0.5rem;
   color: var(--tide);
@@ -1086,6 +1092,90 @@ textarea {
   margin-bottom: 0.85rem;
 }
 
+.profile--portrait .profile-head {
+  grid-template-columns: 1fr;
+  margin-bottom: 0.65rem;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 7.35rem minmax(0, 1fr);
+  column-gap: 0.95rem;
+  row-gap: 0.9rem;
+  align-items: center;
+}
+
+.profile-intro h2 {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+  line-height: 1.15;
+}
+
+.profile-intro .role {
+  margin: 0.28rem 0 0;
+}
+
+.profile-copy {
+  grid-column: 1 / -1;
+}
+
+.profile-photo {
+  margin: 0;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 15%;
+  border-radius: 16px;
+  display: block;
+  background: var(--tide-soft);
+}
+
+.profile-photo figcaption {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+.approach-label {
+  margin: 0.15rem 0 0.45rem;
+  font-weight: 600;
+  color: var(--tide);
+  font-size: 0.95rem;
+}
+
+.approach-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0 0 0.95rem;
+  padding: 0;
+}
+
+.approach-list li {
+  margin: 0;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  background: var(--tide-soft);
+  color: var(--tide);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.profile-links {
+  margin-top: 0.15rem;
+}
+
+.profile-links a {
+  font-weight: 600;
+}
+
 .profile h2 {
   margin: 0;
   font-size: clamp(1.45rem, 2.2vw, 1.85rem);
@@ -1159,6 +1249,28 @@ textarea {
 
   .profile {
     padding: 1.7rem 1.65rem 1.5rem;
+  }
+}
+
+@media (min-width: 800px) {
+  .profile--portrait .profile-layout {
+    grid-template-columns: 12.5rem minmax(0, 1fr);
+    column-gap: 1.75rem;
+    row-gap: 0.35rem;
+    align-items: start;
+  }
+
+  .profile--portrait .profile-photo {
+    grid-row: 1 / span 2;
+  }
+
+  .profile--portrait .profile-intro {
+    align-self: end;
+    padding-bottom: 0.35rem;
+  }
+
+  .profile--portrait .profile-copy {
+    grid-column: 2;
   }
 }
 

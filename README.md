@@ -48,7 +48,7 @@ Keep each page’s `<title>` and meta description unique. Mention West Bloomfiel
 
 The about page lists only what the practice has confirmed.
 
-**Sherry Ilyse Wexler, LMSW** — Michigan clinical social worker (license 6801058964; NPI 1104562966). In clinical practice since 1988. Clinical social work path includes Wayne State University School of Medicine. Has practiced in West Bloomfield and Troy. Formerly Sherry Sack. Co-founder with Marcie Israel. Her photograph is still pending; keep the initials placeholder until a real portrait is added. Do not invent a degree title from Wayne State, and do not paste copy from her Psychology Today profile.
+**Sherry Ilyse Wexler, LMSW** — Michigan clinical social worker (license 6801058964; NPI 1104562966). In clinical practice since 1988. Clinical social work path includes Wayne State University School of Medicine. Formerly Sherry Sack. Co-founder with Marcie Israel. Practice photograph: `assets/sherry-wexler.jpg`. Based in Farmington Hills; telehealth Monday–Friday 8 a.m.–7 p.m., occasional weekends; office line (248) 609-1379. Psychology Today profile may be linked, but do not paste its wording. Do not invent a degree title from Wayne State or a year count beyond 1988.
 
 **Marcie Israel** (also Marcie Weinbaum Israel), **MSW, CSW** — Michigan licensed clinical social worker (license 6801059729; NPI 1780623736). Decades of clinical social work; do not invent a year count. Associated with clinical social work in Metro Detroit, including Livonia and Farmington Hills. Co-founder with Sherry Wexler. Do not add employers, extra degrees, or specialties she has not claimed.
 
