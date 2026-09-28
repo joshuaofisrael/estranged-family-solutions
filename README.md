@@ -4,16 +4,39 @@ Static website for Estranged Family Solutions, a family estrangement therapy pra
 
 ## Where it is published
 
-GitHub Pages for this repository is already set to publish the root of `main`. A `CNAME` file keeps the custom domain:
+GitHub Pages publishes the root of `main`. There is no build step and no GitHub Actions workflow. `.nojekyll` is in the repository root so Pages serves the HTML as written, instead of running Jekyll.
+
+In the repository settings, **Pages → Build and deployment → Source** should stay **Deploy from a branch**, branch `main`, folder `/ (root)`.
+
+The custom domain is the apex, set by the `CNAME` file at the repository root:
+
+```
+estrangedfamilysolutions.com
+```
+
+That file must contain only that hostname. Do not put `www` in `CNAME`. GitHub uses the apex as the primary domain and redirects `www.estrangedfamilysolutions.com` to it once the `www` DNS record below is in place. The certificate GitHub issues covers both names.
 
 - https://estrangedfamilysolutions.com/
-- https://joshuaofisrael.github.io/estranged-family-solutions/ redirects to that domain
+- https://www.estrangedfamilysolutions.com/ redirects to the apex
+- https://joshuaofisrael.github.io/estranged-family-solutions/ redirects to the apex
 
-There is no build step. `.nojekyll` is in the repository root so GitHub Pages serves the HTML as written, instead of running Jekyll.
+Merging to `main` publishes the site.
 
-Merging to `main` publishes the site. In the repository settings, **Pages → Build and deployment → Source** should stay **Deploy from a branch**, branch `main`, folder `/ (root)`.
+### Namecheap DNS
 
-HTTPS is available for the custom domain. If visitors still land on `http://`, turn on **Enforce HTTPS** under Pages settings.
+The domain `estrangedfamilysolutions.com` is registered at Namecheap (Joshua Israel Ventures). Point it at GitHub Pages from **Domain List → Manage → Advanced DNS**. Remove any parking page, URL redirect, or extra A / AAAA / CNAME records for `@` and `www` before adding these.
+
+| Type | Host | Value |
+| --- | --- | --- |
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `joshuaofisrael.github.io` |
+
+Use Automatic TTL. The `www` target is the GitHub user site, not the repository name. If Advanced DNS already matches this table, leave those records in place.
+
+After the records propagate, open **Settings → Pages** and confirm the custom domain is `estrangedfamilysolutions.com`. Then turn on **Enforce HTTPS**. Leave that off until GitHub shows the DNS check as successful. Until it is on, `http://` still serves the site without redirecting to `https://`.
 
 ## Preview locally
 
