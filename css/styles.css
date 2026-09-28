@@ -164,7 +164,7 @@ a:hover {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 30;
   background: rgba(243, 239, 230, 0.94);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
@@ -1022,9 +1022,10 @@ textarea {
     top: 100%;
     width: auto;
     padding: 0.35rem 1rem 0.85rem;
-    background: rgba(252, 251, 248, 0.98);
+    background: #fcfbf8;
     border-bottom: 1px solid var(--line);
-    box-shadow: var(--shadow);
+    box-shadow: 0 16px 36px rgba(23, 36, 33, 0.12);
+    z-index: 40;
   }
 
   .js .site-nav.is-open {
