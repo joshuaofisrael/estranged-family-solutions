@@ -46,7 +46,13 @@ Keep each page’s `<title>` and meta description unique. Mention West Bloomfiel
 
 ### Bios and credentials
 
-The about page states only what is confirmed: both therapists are licensed in Michigan, and the practice in West Bloomfield focuses on family estrangement. Do not add degrees, license numbers, years in practice, or extra specialties until the practice provides them. When you have those details, put them in `about.html` and remove the note that says they are not listed yet.
+The about page lists only what the practice has confirmed.
+
+**Sherry Ilyse Wexler, LMSW** — Michigan clinical social worker (license 6801058964; NPI 1104562966). In clinical practice since 1988. Clinical social work path includes Wayne State University School of Medicine. Has practiced in West Bloomfield and Troy. Formerly Sherry Sack. Co-founder with Marcie Israel. Her photograph is still pending; keep the initials placeholder until a real portrait is added. Do not invent a degree title from Wayne State, and do not paste copy from her Psychology Today profile.
+
+**Marcie Israel** (also Marcie Weinbaum Israel), **MSW, CSW** — Michigan licensed clinical social worker (license 6801059729; NPI 1780623736). Decades of clinical social work; do not invent a year count. Associated with clinical social work in Metro Detroit, including Livonia and Farmington Hills. Co-founder with Sherry Wexler. Do not add employers, extra degrees, or specialties she has not claimed.
+
+Both focus on family estrangement: repair when it can be safe, and safe distance and coping when it cannot. Do not add testimonials.
 
 ### Contact form
 

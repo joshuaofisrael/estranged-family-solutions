@@ -1063,6 +1063,105 @@ textarea {
   font-size: 1.15rem;
 }
 
+.profiles {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1.75rem 0 2.5rem;
+}
+
+.profile {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--tide);
+  border-radius: 18px;
+  padding: 1.45rem 1.3rem 1.35rem;
+  box-shadow: var(--shadow);
+}
+
+.profile-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1.05rem;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.profile h2 {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+  line-height: 1.2;
+}
+
+.profile .role {
+  margin: 0.2rem 0 0;
+}
+
+.profile .aka {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.profile .avatar {
+  width: 4.25rem;
+  height: 4.25rem;
+  font-size: 1.2rem;
+}
+
+.profile-body p {
+  margin: 0 0 0.85rem;
+  color: var(--ink-soft);
+}
+
+.profile-body p:last-child {
+  margin-bottom: 0;
+}
+
+.photo-pending {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  font-style: italic;
+}
+
+.credential-list {
+  display: grid;
+  gap: 0.85rem 1.25rem;
+  margin: 1.15rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.credential-list div {
+  min-width: 0;
+}
+
+.credential-list dt {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.credential-list dd {
+  margin: 0.12rem 0 0;
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 640px) {
+  .credential-list {
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  }
+
+  .profile {
+    padding: 1.7rem 1.65rem 1.5rem;
+  }
+}
+
 .success-panel {
   background: var(--card);
   border: 1px solid var(--line);
