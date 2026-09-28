@@ -1,6 +1,6 @@
-# Estranged Family Solutions
+# Family Solutions
 
-Static website for Estranged Family Solutions, a family estrangement therapy practice in West Bloomfield, Michigan. Sherry Wexler and Marcie Israel are licensed therapists in Michigan. The site explains two care paths — repair and reunite, and safe distance and coping — and gives visitors a way to start a conversation.
+Static website for Family Solutions, a West Bloomfield practice that treats family conflict and estrangement. The public name is Family Solutions. Sherry Wexler and Marcie Israel are licensed therapists in Michigan. The site explains two care paths — repair and reunite, and safe distance and coping — and gives visitors a way to start a conversation. The published host remains `estrangedfamilysolutions.com` until a new domain is chosen.
 
 ## Where it is published
 

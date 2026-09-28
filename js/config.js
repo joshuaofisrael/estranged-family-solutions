@@ -1,4 +1,4 @@
-/* Contact delivery for Estranged Family Solutions.
+/* Contact delivery for Family Solutions.
    Submissions go to the practice inbox through FormSubmit.
    The first real submission sends joshuaofisrael@gmail.com a confirmation
    link. The form starts delivering only after that link is opened.

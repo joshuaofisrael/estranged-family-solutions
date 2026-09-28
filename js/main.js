@@ -78,7 +78,7 @@
       phone: String(data.get("phone") || "").trim(),
       path: pathLabels[String(data.get("path") || "").trim()] || String(data.get("path") || "").trim(),
       message: String(data.get("message") || "").trim(),
-      _subject: "New inquiry — Estranged Family Solutions",
+      _subject: "New inquiry — Family Solutions",
       _template: "table",
       _captcha: "false",
       _honey: ""
@@ -171,7 +171,7 @@
       "mailto:" +
       email +
       "?subject=" +
-      encodeURIComponent("Inquiry for Estranged Family Solutions") +
+      encodeURIComponent("Inquiry for Family Solutions") +
       "&body=" +
       encodeURIComponent(body);
     link.textContent = email;

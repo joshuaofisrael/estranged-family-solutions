@@ -1,7 +1,7 @@
 {
-  "name": "Estranged Family Solutions",
-  "short_name": "EFS",
-  "description": "Family estrangement therapy in West Bloomfield, Michigan.",
+  "name": "Family Solutions",
+  "short_name": "Family Solutions",
+  "description": "We specialize in treating family conflict and estrangement in West Bloomfield, Michigan.",
   "start_url": "./",
   "scope": "./",
   "display": "browser",
