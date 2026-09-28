@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://joshuaofisrael.github.io/estranged-family-solutions/sitemap.xml
