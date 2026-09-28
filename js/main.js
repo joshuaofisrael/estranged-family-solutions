@@ -39,59 +39,20 @@
 
   var config = window.EFS_CONFIG || {};
   var status = document.getElementById("form-status");
-  var preview = document.getElementById("message-preview");
+  var successPanel = document.getElementById("form-success");
   var submitBtn = form.querySelector("[type='submit']");
   var messageField = document.getElementById("message");
-  var endpoint = String(config.formspreeEndpoint || "").trim().replace(/\/$/, "");
+  var endpoint = String(config.formsubmitEndpoint || "").trim();
   var email = String(config.practiceEmail || "").trim();
-  var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  var formspreeOk = /^https:\/\/formspree\.io\/f\/[A-Za-z0-9]+$/.test(endpoint);
   var pathLabels = {
     repair: "Repair & reunite",
     distance: "Safe distance & coping",
     unsure: "Not sure yet"
   };
 
-  if (formspreeOk) {
-    submitBtn.textContent = "Send message";
-  } else if (emailOk) {
-    submitBtn.textContent = "Open email app";
-    var direct = document.getElementById("direct-email");
-    if (direct) {
-      direct.hidden = false;
-      direct.textContent = "";
-      direct.append("Or email the practice directly at ");
-      var link = document.createElement("a");
-      link.href = "mailto:" + email;
-      link.textContent = email;
-      direct.append(link, ".");
-    }
-  }
-
   if (messageField) {
     messageField.addEventListener("input", function () {
       messageField.setCustomValidity("");
-    });
-  }
-
-  var copyBtn = document.getElementById("copy-message");
-  if (copyBtn && preview) {
-    copyBtn.addEventListener("click", function () {
-      var pre = preview.querySelector("pre");
-      var value = pre ? pre.textContent : "";
-      var done = function () {
-        copyBtn.textContent = "Copied";
-        window.setTimeout(function () {
-          copyBtn.textContent = "Copy message";
-        }, 2000);
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(value).then(done).catch(function () {
-          selectPreview(pre);
-        });
-      } else {
-        selectPreview(pre);
-      }
     });
   }
 
@@ -104,9 +65,9 @@
     }
     if (!form.reportValidity()) return;
 
-    var honeypot = form.querySelector("[name='fax_number']");
+    var honeypot = form.querySelector("[name='_honey']");
     if (honeypot && honeypot.value) {
-      setStatus("The message could not be prepared. Please try again, or contact the practice in West Bloomfield.", false);
+      setStatus("The message could not be sent. Please try again.", false);
       return;
     }
 
@@ -115,118 +76,106 @@
       name: String(data.get("name") || "").trim(),
       email: String(data.get("email") || "").trim(),
       phone: String(data.get("phone") || "").trim(),
-      path: String(data.get("path") || "").trim(),
-      message: String(data.get("message") || "").trim()
+      path: pathLabels[String(data.get("path") || "").trim()] || String(data.get("path") || "").trim(),
+      message: String(data.get("message") || "").trim(),
+      _subject: "New inquiry — Estranged Family Solutions",
+      _template: "table",
+      _captcha: "false",
+      _honey: ""
     };
-    var text = [
-      "Name: " + payload.name,
-      "Email: " + payload.email,
-      "Phone: " + (payload.phone || "(not provided)"),
-      "Path: " + (pathLabels[payload.path] || payload.path),
-      "",
-      payload.message
-    ].join("\n");
 
-    if (formspreeOk) {
-      submitBtn.disabled = true;
-      setStatus("Sending your message…", true);
-      fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
-          name: payload.name,
-          email: payload.email,
-          phone: payload.phone,
-          path: pathLabels[payload.path] || payload.path,
-          message: payload.message
-        })
+    if (!endpoint) {
+      setStatus("The form is not connected yet.", false);
+      addMailLink(payload);
+      return;
+    }
+
+    submitBtn.disabled = true;
+    form.setAttribute("aria-busy", "true");
+    setStatus("Sending your message…", true);
+
+    fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(payload)
+    })
+      .then(function (response) {
+        return response.json().then(
+          function (body) {
+            return { ok: response.ok, body: body || {} };
+          },
+          function () {
+            return { ok: response.ok, body: {} };
+          }
+        );
       })
-        .then(function (response) {
-          if (!response.ok) throw new Error("declined");
-          form.reset();
-          if (preview) preview.hidden = true;
-          setStatus(
-            "Your message was sent. The practice will reply if this inquiry is a fit. If you are in crisis, call 911 or 988 — do not wait for an email.",
-            true
-          );
-        })
-        .catch(function () {
-          setStatus(
-            "The form service did not accept the message. Copy it below and send it another way.",
-            false
-          );
-          showPreview(text, emailOk ? email : "");
-        })
-        .finally(function () {
-          submitBtn.disabled = false;
-        });
-      return;
-    }
-
-    showPreview(text, emailOk ? email : "");
-
-    if (emailOk && text.length < 1500) {
-      var href =
-        "mailto:" +
-        email +
-        "?subject=" +
-        encodeURIComponent("Inquiry for Estranged Family Solutions") +
-        "&body=" +
-        encodeURIComponent(text);
-      setStatus(
-        "Your email app should open with this message addressed to the practice. If nothing opens, copy the message below and send it to " +
-          email +
-          ".",
-        true
-      );
-      window.location.href = href;
-      return;
-    }
-
-    if (emailOk) {
-      setStatus(
-        "This message is long for an email link. Copy it below and send it to " + email + ".",
-        true
-      );
-      return;
-    }
-
-    setStatus(
-      "The practice inbox is not connected on this website yet. Your message is shown below so you can copy it. The practice is in West Bloomfield, Michigan.",
-      false
-    );
+      .then(function (result) {
+        var body = result.body || {};
+        var flag = String(body.success == null ? "" : body.success).toLowerCase();
+        var note = String(body.message || "");
+        if (!result.ok || flag === "false") {
+          var error = new Error(note || "The form service did not accept the message.");
+          error.detail = note;
+          throw error;
+        }
+        form.hidden = true;
+        if (successPanel) successPanel.hidden = false;
+        setStatus("", true);
+        if (successPanel) {
+          var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          successPanel.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "nearest" });
+        }
+      })
+      .catch(function (error) {
+        var detail = String((error && error.detail) || (error && error.message) || "");
+        var activating = /activat/i.test(detail);
+        setStatus(
+          activating
+            ? "The form inbox still needs a one-time confirmation from the practice. Email the practice directly in the meantime."
+            : "The message could not be sent. You can email the practice directly.",
+          false
+        );
+        addMailLink(payload);
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        form.removeAttribute("aria-busy");
+      });
   });
 
   function setStatus(text, ok) {
     if (!status) return;
     status.textContent = text;
-    status.classList.toggle("is-ok", ok);
-    status.classList.toggle("is-error", !ok);
+    status.classList.toggle("is-ok", Boolean(text) && ok);
+    status.classList.toggle("is-error", Boolean(text) && !ok);
+    if (!text) return;
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     status.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "nearest" });
   }
 
-  function showPreview(text, address) {
-    if (!preview) return;
-    preview.hidden = false;
-    var pre = preview.querySelector("pre");
-    if (pre) pre.textContent = text;
-    var line = preview.querySelector("[data-address]");
-    if (line) {
-      line.hidden = !address;
-      line.textContent = address ? "Practice email: " + address : "";
-    }
-  }
-
-  function selectPreview(pre) {
-    if (!pre) return;
-    var range = document.createRange();
-    range.selectNodeContents(pre);
-    var selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
+  function addMailLink(payload) {
+    if (!status || !email) return;
+    var body = [
+      "Name: " + payload.name,
+      "Email: " + payload.email,
+      "Phone: " + (payload.phone || "(not provided)"),
+      "Path: " + payload.path,
+      "",
+      payload.message
+    ].join("\n");
+    var link = document.createElement("a");
+    link.href =
+      "mailto:" +
+      email +
+      "?subject=" +
+      encodeURIComponent("Inquiry for Estranged Family Solutions") +
+      "&body=" +
+      encodeURIComponent(body);
+    link.textContent = email;
+    status.append(" ");
+    status.append(link);
   }
 })();

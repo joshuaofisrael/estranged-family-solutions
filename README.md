@@ -50,12 +50,11 @@ The about page states only what is confirmed: both therapists are licensed in Mi
 
 ### Contact form
 
-Open `js/config.js` and set one of these:
+Submissions are sent with [FormSubmit](https://formsubmit.co/) to **joshuaofisrael@gmail.com**. The endpoint is set in `js/config.js`. The form asks for name, email, phone (optional), which path the person is exploring, and a message. A hidden honeypot field is included for spam. The contact page tells people to call 911 or 988 instead of using the form in a crisis.
 
-1. `practiceEmail` — the real practice inbox. Submitting the form opens the visitor’s email app with the message filled in, and shows a copy they can send if the app does not open.
-2. `formspreeEndpoint` — a Formspree form URL, exactly `https://formspree.io/f/your-id`. The form then sends the message to Formspree. Create the form at [formspree.io](https://formspree.io/) and paste that endpoint only. The script rejects any other URL.
+**One-time activation.** FormSubmit will not deliver messages until the inbox confirms the form. The first submission sends a confirmation email to joshuaofisrael@gmail.com from FormSubmit. Open that email and click the activation link. After that, new submissions arrive in the inbox. Until the link is clicked, the form tells the visitor to email the practice directly.
 
-Leave the unused value as `""`. If both are empty, the form still prepares the message on the page and tells the visitor the inbox is not connected. That is intentional, so the site never invents an email address.
+To use a different address later, change `practiceEmail` and `formsubmitEndpoint` in `js/config.js`, and the `action` on the form in `contact.html`. The endpoint looks like `https://formsubmit.co/ajax/you@example.com`.
 
 Do not ask people to put clinical detail in the form. It is not a patient portal.
 

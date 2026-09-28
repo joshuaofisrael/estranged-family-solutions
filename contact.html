@@ -69,9 +69,12 @@
           <p>If you are in immediate danger, call <a href="tel:911">911</a>. If you are in crisis in the United States, call or text <a href="tel:988">988</a> for the Suicide &amp; Crisis Lifeline. This website is information about a therapy practice. Sending this form is not an emergency request, and it is not monitored overnight.</p>
         </div>
         <noscript>
-          <p>This form uses a small script to open your email app or to send the message through a form service. The practice is in West Bloomfield, Michigan.</p>
+          <p>With JavaScript off, this form still sends your note to the practice. It is not monitored as an emergency line.</p>
         </noscript>
-        <form id="contact-form" class="form" method="post" action="#">
+        <form id="contact-form" class="form" method="POST" action="https://formsubmit.co/joshuaofisrael@gmail.com">
+          <input type="hidden" name="_subject" value="New inquiry — Estranged Family Solutions">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
           <div class="field">
             <label for="name">Name <span class="req">(required)</span></label>
             <input id="name" name="name" type="text" autocomplete="name" required maxlength="120">
@@ -87,17 +90,17 @@
           <fieldset class="choices">
             <legend>Which path are you exploring? <span class="req">(required)</span></legend>
             <label class="choice">
-              <input type="radio" name="path" value="repair" required>
+              <input type="radio" name="path" value="Repair &amp; reunite" required>
               <strong>Repair &amp; reunite</strong>
               <span>You want to explore whether a healthier connection can be safe.</span>
             </label>
             <label class="choice">
-              <input type="radio" name="path" value="distance">
+              <input type="radio" name="path" value="Safe distance &amp; coping">
               <strong>Safe distance &amp; coping</strong>
               <span>You need help with boundaries, distance, or the aftermath of cutting contact.</span>
             </label>
             <label class="choice">
-              <input type="radio" name="path" value="unsure">
+              <input type="radio" name="path" value="Not sure yet">
               <strong>I’m not sure yet</strong>
               <span>You want help sorting out which path fits.</span>
             </label>
@@ -107,24 +110,21 @@
             <textarea id="message" name="message" required maxlength="5000" spellcheck="true"></textarea>
           </div>
           <p class="hp" aria-hidden="true">
-            <label for="fax_number">Fax</label>
-            <input id="fax_number" name="fax_number" type="text" tabindex="-1" autocomplete="off">
+            <label for="_honey">Leave this field blank</label>
+            <input id="_honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
           </p>
           <label class="check">
             <input type="checkbox" name="not_emergency" value="yes" required>
             <span>I understand this form is not for emergencies. If I am in immediate danger I will call 911, or 988 if I am in crisis in the U.S.</span>
           </label>
-          <button class="button" type="submit">Prepare message</button>
-          <p id="direct-email" hidden></p>
-          <p class="form-note">Please do not include clinical details you would not put in an ordinary email. This form is not a patient portal.</p>
+          <button class="button" type="submit">Send message</button>
+          <p class="form-note">Or email <a href="mailto:joshuaofisrael@gmail.com">joshuaofisrael@gmail.com</a>. Please do not include clinical details you would not put in an ordinary email. This form is not a patient portal.</p>
           <div id="form-status" class="status" role="status" aria-live="polite"></div>
-          <div id="message-preview" class="preview" hidden>
-            <h2>Your message</h2>
-            <p data-address hidden></p>
-            <pre></pre>
-            <button type="button" class="button secondary" id="copy-message">Copy message</button>
-          </div>
         </form>
+        <div id="form-success" class="success-panel" hidden>
+          <h2>Your message was sent.</h2>
+          <p>Thank you. If this inquiry is a fit, the practice will reply at the email you gave. If you are in crisis, call 911 or 988 — do not wait for a reply.</p>
+        </div>
       </article>
       <aside class="side">
         <div class="side-card">
