@@ -304,6 +304,7 @@ a:hover {
 
 .hero h1 {
   max-width: 11em;
+  margin-bottom: 0.55rem;
 }
 
 .kicker {
@@ -324,6 +325,17 @@ a:hover {
   height: 1px;
   background: currentColor;
   flex: none;
+}
+
+.tagline {
+  margin: 0.2rem 0 1.05rem;
+  max-width: 18em;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.28rem, 2.3vw, 1.6rem);
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+  color: var(--tide);
 }
 
 .lede {
@@ -908,6 +920,17 @@ textarea {
   font-family: var(--serif);
   font-size: 1.4rem;
   color: var(--ink);
+}
+
+.footer-tagline {
+  margin: 0 0 0.65rem;
+  max-width: 24rem;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  color: var(--tide);
 }
 
 .footer-links {
