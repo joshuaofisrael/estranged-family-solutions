@@ -2,7 +2,7 @@
 
 > We specialize in treating family conflict and estrangement. Keeping your family together and supporting you when families fall apart.
 
-Family Solutions is a therapy practice in West Bloomfield, Michigan. Sherry Wexler, LMSW, and Marcie Israel, MSW, CSW, are the clinicians. The practice offers two care paths: repair and reunite when a relationship can be made safe, and safe distance and coping when contact would not be safe. Operated by Joshua Israel Ventures LLC.
+Family Solutions is a therapy practice in West Bloomfield, Michigan. Sherry Wexler, LMSW, and Marcie Israel, MSW, CSW, are the clinicians. The practice offers two care paths: repair and reunite when a relationship can be made safe, and safe distance and coping when contact would not be safe. Family Solutions is a brand owned by Joshua Israel Ventures LLC, which provides management, administrative and website services as the practice's MSO. Clinical and therapy services are provided only by those licensed clinicians. The MSO does not provide or direct clinical care.
 
 ## Care paths
 
@@ -14,4 +14,6 @@ Family Solutions is a therapy practice in West Bloomfield, Michigan. Sherry Wexl
 - [Home](https://estrangedfamilysolutions.com/): Family Solutions specializes in treating family conflict and estrangement in West Bloomfield, Michigan.
 - [About the clinicians](https://estrangedfamilysolutions.com/about.html): Sherry Wexler, LMSW, and Marcie Israel, MSW, CSW, licensed clinical social workers in Michigan.
 - [Contact](https://estrangedfamilysolutions.com/contact.html): Send a message to the practice. Not for emergencies; call 911, or call or text 988 in the United States.
-- [Privacy note](https://estrangedfamilysolutions.com/privacy.html): What this static website does with an inquiry. Not a consent form for therapy.
+- [Terms of Use](https://estrangedfamilysolutions.com/terms.html): Joshua Israel Ventures LLC is the party a visitor contracts with to use this website. Therapy, if any, is under a separate agreement with the licensed clinician.
+- [Privacy Policy](https://estrangedfamilysolutions.com/privacy.html): Joshua Israel Ventures LLC is the data controller for this website. The contact form is ordinary email through FormSubmit, not a secure clinical channel.
+- [Disclaimer](https://estrangedfamilysolutions.com/disclaimer.html): Website information is general. This site is not a crisis service and has no affiliate or advertising links.

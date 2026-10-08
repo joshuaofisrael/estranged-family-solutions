@@ -1064,6 +1064,15 @@ textarea {
   color: var(--coral-deep);
 }
 
+.footer-owner {
+  margin: 0 0 0.65rem;
+  max-width: 36rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
 .footer-links {
   list-style: none;
   margin: 0;
