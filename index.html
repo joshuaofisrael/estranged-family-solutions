@@ -29,19 +29,57 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Family Solutions",
-    "url": "https://estrangedfamilysolutions.com/",
-    "image": "https://estrangedfamilysolutions.com/assets/og.png",
-    "description": "We specialize in treating family conflict and estrangement. Keeping your family together and supporting you when families fall apart. West Bloomfield, Michigan.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "West Bloomfield",
-      "addressRegion": "MI",
-      "addressCountry": "US"
-    },
-    "areaServed": "West Bloomfield, Michigan",
-    "knowsAbout": ["Family conflict", "Family estrangement", "Family relationships"]
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://estrangedfamilysolutions.com/#practice",
+        "name": "Family Solutions",
+        "url": "https://estrangedfamilysolutions.com/",
+        "image": "https://estrangedfamilysolutions.com/assets/og.png",
+        "description": "We specialize in treating family conflict and estrangement. Keeping your family together and supporting you when families fall apart. Operated by Joshua Israel Ventures LLC.",
+        "email": "joshuaofisrael@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "West Bloomfield",
+          "addressRegion": "MI",
+          "addressCountry": "US"
+        },
+        "areaServed": ["West Bloomfield, Michigan", "Farmington Hills, Michigan", "Metro Detroit"],
+        "knowsAbout": ["Family conflict", "Family estrangement", "Family relationships"],
+        "employee": [
+          {
+            "@type": "Person",
+            "name": "Sherry Ilyse Wexler",
+            "honorificSuffix": "LMSW",
+            "jobTitle": "Clinical social worker and therapist",
+            "url": "https://estrangedfamilysolutions.com/about.html#sherry-wexler"
+          },
+          {
+            "@type": "Person",
+            "name": "Marcie Israel",
+            "alternateName": "Marcie Weinbaum Israel",
+            "honorificSuffix": "MSW, CSW",
+            "jobTitle": "Michigan licensed clinical social worker",
+            "url": "https://estrangedfamilysolutions.com/about.html#marcie-israel"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://estrangedfamilysolutions.com/#organization",
+        "name": "Family Solutions",
+        "url": "https://estrangedfamilysolutions.com/",
+        "description": "Operated by Joshua Israel Ventures LLC.",
+        "email": "joshuaofisrael@gmail.com"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://estrangedfamilysolutions.com/#website",
+        "name": "Family Solutions",
+        "url": "https://estrangedfamilysolutions.com/",
+        "publisher": { "@id": "https://estrangedfamilysolutions.com/#organization" }
+      }
+    ]
   }
   </script>
 </head>
@@ -79,7 +117,7 @@
         <p class="kicker">Family Solutions · West Bloomfield</p>
         <h1>We specialize in treating family conflict and estrangement.</h1>
         <p class="tagline">Keeping your family together and supporting you when families fall apart.</p>
-        <p class="lede">One path works toward reconnection, when that can be safe. The other helps you set a firm distance when contact would not be safe, and to live with what follows. Sherry Wexler, LMSW, and Marcie Israel, MSW, CSW, are licensed clinical social workers in Michigan.</p>
+        <p class="lede">Family Solutions in West Bloomfield, Michigan specializes in treating family conflict and estrangement. One path works toward reconnection, when that can be safe. The other helps you set a firm distance when contact would not be safe, and to live with what follows. Sherry Wexler, LMSW, and Marcie Israel, MSW, CSW, are licensed clinical social workers in Michigan. Operated by Joshua Israel Ventures LLC.</p>
         <p class="hero-meta">Parents and adult children are both welcome. You do not have to choose a path before you <a href="contact.html">make contact</a>.</p>
       </div>
       <div class="path-stack">
